@@ -1,0 +1,19 @@
+ALGORITHM sum
+VAR
+    var x:STRING[20];
+    var y:STRING[20];
+    var sum:INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO x.length STEP 1  DO
+    FOR j FROM 0 TO y.length STEP 1  DO
+       
+        IF (x[i] <> y[j]) THEN
+            sum:=sum+x[i];
+        END_IF
+        IF (y[j] <> x[i]) THEN
+            sum:=y[j];
+        END_IF
+    END_FOR
+    END_FOR
+    write("le somme est ",sum);
+END
