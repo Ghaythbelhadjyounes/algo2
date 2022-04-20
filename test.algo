@@ -1,19 +1,37 @@
 ALGORITHM sum
 VAR
-    var x:STRING[20];
-    var y:STRING[20];
-    var sum:INTEGER:=0;
+    tab1,tab2: ARRAY_OF INTEGER[];
+    sum:INTEGER;
+    exist:BOOLEAN;
+
+
 BEGIN
-    FOR i FROM 0 TO x.length STEP 1  DO
-    FOR j FROM 0 TO y.length STEP 1  DO
-       
-        IF (x[i] <> y[j]) THEN
-            sum:=sum+x[i];
-        END_IF
-        IF (y[j] <> x[i]) THEN
-            sum:=y[j];
+    tab1:={1,5,9,10,12};
+    tab2:={2,3,5,1,13}; 
+    sum=0;
+
+    FOR i FROM 0 TO tab1.length-1 DO
+    exist:=false;
+        FOR j FROM 0 TO tab2.length-1 DO
+            IF (tab1[i]=tab2[j]) THEN
+               exist=true; 
+            END_IF
+        END_FOR
+        IF (exist=false) THEN
+            sum+=tab1[i];
         END_IF
     END_FOR
+
+    FOR i FROM 0 TO tab2.length-1 DO
+    exist:=false;
+        FOR j FROM 0 TO tab1.length-1 DO
+            IF (tab1[i]=tab2[j]) THEN
+               exist=true; 
+            END_IF
+        END_FOR
+        IF (exist=false) THEN
+            sum+=tab2[j];
+        END_IF
     END_FOR
-    write("le somme est ",sum);
+
 END
